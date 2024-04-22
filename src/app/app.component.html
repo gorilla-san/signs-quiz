@@ -1,4 +1,6 @@
-<div class="wrapper">
+<div
+    class="wrapper"
+    [class.game-over]="gameOver">
     <div class="header">
         <label for="total-questions"> Choose number of questions: </label>
         <input
@@ -52,18 +54,19 @@
             </button>
         </div>
     </div>
-    <div
-        class="game-over-screen"
-        *ngIf="gameOver">
-        <h2>Game over!</h2>
-        <h3>
-            You answered <span>{{ score }}</span> questions correctly out of
-            {{ totalQuestions }}
-        </h3>
-        <button
-            class="play-again"
-            (click)="resetGame()">
-            Play again
-        </button>
-    </div>
+</div>
+
+<div
+    class="game-over-screen"
+    *ngIf="gameOver">
+    <h2>Game over!</h2>
+    <h3>
+        You answered <span>{{ score }}</span> questions correctly out of
+        {{ game.length }}
+    </h3>
+    <button
+        class="play-again"
+        (click)="resetGame()">
+        Play again
+    </button>
 </div>

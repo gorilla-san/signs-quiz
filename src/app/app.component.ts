@@ -50,15 +50,20 @@ export class AppComponent implements OnInit {
 		} else {
 			this.answeredIncorrect = true;
 		}
-		setTimeout(() => {
-			if (this.currentQuestion === this.totalQuestions - 1) {
+		if (this.currentQuestion === this.game.length - 1) {
+			setTimeout(() => {
 				this.gameOver = true;
-				return;
-			}
-			this.currentQuestion++;
-			this.answeredCorrect = false;
-			this.answeredIncorrect = false;
-		}, 2000);
+				this.currentQuestion = 0;
+				this.answeredCorrect = false;
+				this.answeredIncorrect = false;
+			}, 1000);
+		} else {
+			setTimeout(() => {
+				this.currentQuestion++;
+				this.answeredCorrect = false;
+				this.answeredIncorrect = false;
+			}, 2000);
+		}
 	}
 
 	resetGame() {
