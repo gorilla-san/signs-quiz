@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
 				this.currentQuestion++;
 				this.answeredCorrect = false;
 				this.answeredIncorrect = false;
-			}, 2000);
+			}, 1500);
 		}
 	}
 
@@ -122,4 +122,21 @@ export class AppComponent implements OnInit {
 
 		return shuffled.slice(0, totalQuestions);
 	}
+
+	getGameOverMessage(): string {
+		if (this.score === this.totalQuestions) {
+			return 'Idemo bracala! Svaka ti dala!';
+		} else if (this.score === 0) {
+			return 'Nula? Iskreno svaka cast i slep bi ubo bar jednom.';
+		} else if (this.score < this.totalQuestions / 3) {
+			return 'Nema veze, gasi, batali.';
+		} else if (this.score < this.totalQuestions / 2) {
+			return 'Da je ovo bio fudbal, rekli bi "solidna sredina tabele". Ali nije.';
+		} else if (this.score > this.totalQuestions / 2) {
+			return 'Bravo. To je znacajno vise nego da si nasumicno kliktao.';
+		} else {
+			return 'Ajde bre uozbilji se!'
+		}
+	}
+
 }

@@ -59,7 +59,7 @@
 <div
     class="game-over-screen"
     *ngIf="gameOver">
-    <h2>Game over!</h2>
+    <h3>{{ getGameOverMessage() }}</h3>
     <h3>
         You answered <span>{{ score }}</span> questions correctly out of
         {{ game.length }}
